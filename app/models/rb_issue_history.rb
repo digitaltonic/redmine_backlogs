@@ -139,7 +139,8 @@ class RbIssueHistory < ActiveRecord::Base
         when 'fixed_version_id' then full_journal[date][:sprint] = {:new => j.value ? j.value.to_i : nil}
         when 'estimated_hours' then full_journal[date][:estimated_hours] = {:new => j.value ? j.value.to_f : nil}
         when 'remaining_hours' then full_journal[date][:remaining_hours] = {:new => j.value ? j.value.to_f : nil}
-  
+        when 'status_id' then full_journal[date][:status_id] = {:new => j.value ? j.value.to_i : nil}
+
         else raise "Unexpected property #{j.property}: #{j.value.inspect}"
         end
   
